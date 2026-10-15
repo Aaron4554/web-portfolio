@@ -1,6 +1,7 @@
-# A web portfolio built with React, Typescript, Oxlint.\
+# A web portfolio built with React, Typescript, Oxlint.
 Development - Self hosted\
-Production - Cloudflare?
+Production - Cloudflare?\
+Domain: ajrtech.dev
 
 
 # React + TypeScript + Vite
