@@ -1,9 +1,15 @@
 function ListGroup() {
-  let items = ['Detroit', 'Chicago', 'Saint Joseph', 'LA'];
+  let items = [
+    "I'm in",
+    'Detroit',
+    'You guys are in',
+    'Saint Joseph',
+    'Or somewhre',
+  ];
 
   return (
     <>
-      <h1>List</h1> {items.length === 0 && <p>No item found</p>}
+      <h1>Hi Guys!</h1> {items.length === 0 && <p>No item found</p>}
       <ul className="list-group">
         {items.map((item) => (
           <li
