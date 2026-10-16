@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - ${{ env.BRANCH }}
+      - learning
 
 env:
   BRANCH: learning
@@ -12,10 +12,10 @@ env:
 jobs:
   deploy:
     runs-on: self-hosted
-      steps:
-        - name: Pull latest
-          run: |
-            cd ${{ env.DEPLOY_PATH}}
-            git pul origin ${{ env.BRANCH }}
-            npm install
-            npm run build -- --host
+    steps:
+      - name: Pull latest
+        run: |
+          cd ${{ env.DEPLOY_PATH}}
+          git pull origin ${{ env.BRANCH }}
+          npm install
+          npm run dev -- --host
