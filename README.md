@@ -1,7 +1,15 @@
 # A web portfolio built with React, Typescript, Oxlint.
-Development - Self hosted\
-Production - Cloudflare?\
-Domain: ajrtech.dev
+Development - Self hosted at staging.ajrtech.dev\
+Production - portfolio.ajrtech.dev\
+Domain: ajrtech.dev - Cloudflare\
+
+## Learning notes
+WSL's firewall blocks the ports I use, making sites (or containers I run) non-existant.\
+So The staging site is hosted on my server (R720).
+
+Right now to get changes over. git push origin <branch_name>, ssh into the server, git pull origin <branch_name>. Soon it will just be git push, then a github runner will pull the changes to the server.
+
+The site is reachable thanks to a Cloudflare tunnel. And editing the vite.config.ts to include 'server: {allowedHosts: ['.ajrtech.dev'],},'
 
 
 # React + TypeScript + Vite
