@@ -13,7 +13,9 @@ function ListGroup() {
           <li
             className="list-group-item"
             key={item}
-            onClick={() => console.log('CLicked ' + item)}
+            onClick={() =>
+              console.log('I lied, it does do something, you clicked: ' + item)
+            }
           >
             {item}
           </li>
