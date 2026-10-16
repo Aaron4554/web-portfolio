@@ -1,10 +1,8 @@
 function ListGroup() {
   let items = [
-    "I'm in",
-    'Detroit',
-    'You guys are in',
-    'Saint Joseph',
-    'Or somewhre',
+    'You can click on me',
+    "It doesn't do anything",
+    'But you can do it',
   ];
 
   return (
@@ -13,7 +11,7 @@ function ListGroup() {
       <ul className="list-group">
         {items.map((item) => (
           <li
-            className="list-group"
+            className="list-group-item"
             key={item}
             onClick={() => console.log('CLicked ' + item)}
           >
