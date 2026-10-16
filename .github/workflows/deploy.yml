@@ -3,6 +3,7 @@ name: Deploy
 on:
   push:
     branches:
+<<<<<<< HEAD
       - development
 
 permissions:
@@ -12,10 +13,18 @@ env:
   BRANCH: development
   DEPLOY_PATH: /home/web-portfolio/frontend
   WEB_ROOT: /var/www/portfolio
+=======
+      - ${{ env.BRANCH }}
+
+env:
+  BRANCH: learning
+  DEPLOY_PATH: /home/web-portfolio
+>>>>>>> d597493 (CICD or something)
 
 jobs:
   deploy:
     runs-on: self-hosted
+<<<<<<< HEAD
     if: github.repository == 'Aaron4554/web-portfolio'
     steps:
 
@@ -42,3 +51,12 @@ jobs:
           set -euo pipefail
           sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/dist/ ${{ env.WEB_ROOT }}/
           sudo restorecon -Rv ${{ env.WEB_ROOT }}
+=======
+      steps:
+        - name: Pull latest
+          run: |
+            cd ${{ env.DEPLOY_PATH}}
+            git pul origin ${{ env.BRANCH }}
+            npm install
+            npm run build -- --host
+>>>>>>> d597493 (CICD or something)
