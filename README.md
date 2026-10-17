@@ -9,6 +9,7 @@ On push. Runner pulls code, cd's to the deployment path, pulls down changes, npm
 
 ## TODO
 Install Nginx - then change `npm run dev` to `npm run host`. else, the runner will run forever... also, best practice
+Clean up runner after configuring Nginx. pkill, run dev, and disown $! are bad. bad bad bad.
 
 ## Learning notes
 WSL's firewall blocks the ports I use, making sites (or containers I run) non-existant.\

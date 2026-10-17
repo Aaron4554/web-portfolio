@@ -20,3 +20,5 @@ jobs:
           npm install
           pkill -f 'vite' || true
           nohup npm run dev -- --host > /tmp/vite.log 2>&1 &
+          NPM_ID=${pgrep -f "vite"}
+          disown $NPM_ID
