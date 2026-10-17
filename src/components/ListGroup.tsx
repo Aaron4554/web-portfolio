@@ -1,10 +1,12 @@
+import { useState } from "react";
+
 function ListGroup() {
   let items = [
     'You can click on me',
     "It doesn't do anything",
     'But you can do it',
   ];
-  let selectedIndex = -1;
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
