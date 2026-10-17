@@ -8,7 +8,7 @@ Github runner
 On push. Runner pulls code, cd's to the deployment path, pulls down changes, npm install, npm run dev -- --host
 
 ## TODO
-install Nginx - then change `npm run dev` to `npm run host`. else, the runner will run forever... also, best practice
+Install Nginx - then change `npm run dev` to `npm run host`. else, the runner will run forever... also, best practice
 
 ## Learning notes
 WSL's firewall blocks the ports I use, making sites (or containers I run) non-existant.\
