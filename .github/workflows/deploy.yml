@@ -18,4 +18,5 @@ jobs:
           cd ${{ env.DEPLOY_PATH}}
           git pull origin ${{ env.BRANCH }}
           npm install
-          npm run dev -- --host
+          pkill -f 'vite' || true
+          nohup npm run dev -- --host > /tmp/vite.log 2>&1 &

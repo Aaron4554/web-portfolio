@@ -3,8 +3,7 @@ import { useState } from "react";
 function ListGroup() {
   let items = [
     'You can click on me',
-    "It doesn't do anything",
-    'But you can do it',
+    'I do stuff now',
   ];
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -18,7 +17,7 @@ function ListGroup() {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
-              console.log('I lied, it does do something, you clicked: ' + item);
+              console.log('It also logs which button you clicked, you clicked: ' + item);
             }}
           >
             {item}
