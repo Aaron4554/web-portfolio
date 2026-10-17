@@ -11,14 +11,15 @@ function ListGroup() {
   return (
     <>
       <h1>Hi Guys!</h1> {items.length === 0 && <p>No item found</p>}
-      <ul className={selectedIndex === index ? "list-group-item active" : "list-group-item"}>
+      <ul className="list-group"
         {items.map((item) => (
           <li
-            className="list-group-item"
+            className={selectedIndex === index ? "list-group-item active" : "list-group-item"}
             key={item}
-            onClick={() =>
-              console.log('I lied, it does do something, you clicked: ' + item)
-            }
+            onClick={() => {
+              setSelectedIndex(index);
+              console.log('I lied, it does do something, you clicked: ' + item);
+            }}
           >
             {item}
           </li>
