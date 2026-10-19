@@ -19,6 +19,8 @@ Right now to get changes over. git push origin <branch_name>, ssh into the serve
 The site is reachable thanks to a Cloudflare tunnel. And editing the vite.config.ts to include 'server: {allowedHosts: ['.ajrtech.dev'],},'
 
 
+TODO #2. this is to prevent XSS.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
