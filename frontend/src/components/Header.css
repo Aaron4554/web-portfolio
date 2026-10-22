@@ -25,14 +25,14 @@ html {
 }
 
 [data-bs-theme="dark"] .site-header {
-  --header-bb: #ffffff;
+  --header-bg: #ffffff;
   --header-text: #1a1d24;
   --header-muted: #5b6270;
-  --header-line: e3e6eb;
+  --header-line: #e3e6eb;
   --header-accent: #1a60c1;
 }
 
-[data-bs-theme="dark"] .site-header__nav {
+[data-bs-theme="dark"] .site-header__nav[data-open="true"] {
   --header-bg: var(--bs-body-bg);
   --header-text: var(--bs-body-color);
   --header-muted: var(--bs-secondary-color);
