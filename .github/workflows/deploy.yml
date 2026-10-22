@@ -3,10 +3,10 @@ name: Deploy
 on:
   push:
     branches:
-      - learning
+      - development
 
 env:
-  BRANCH: learning
+  BRANCH: development
   DEPLOY_PATH: /home/web-portfolio
 
 jobs:
