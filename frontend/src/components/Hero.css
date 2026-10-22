@@ -1,0 +1,42 @@
+.hero {
+  --hero-bg: var(--bs-body-bg);
+  --hero-text: var(--bs-body-color);
+  --hero-muted: var(--bs-secondary-color);
+  --hero-accent: var(--bs-link-color);
+
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - 3.5rem);
+  background: var(--hero-bg);
+  color: var(--hero-text);
+}
+
+.hero__inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+.hero__role {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  color: var(--hero-accent);
+}
+
+.hero__name {
+  margin: 0;
+  font-size: clamp(2.75rem, 10vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.hero__focus {
+  max-width: 32ch;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--hero-muted);
+}

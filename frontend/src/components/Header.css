@@ -10,11 +10,11 @@ html {
 }
 
 .site-header {
-  --header-bg: #ffffff;
-  --header-text: #1a1d24;
-  --header-muted: #5b6270;
-  --header-line: #e3e6eb;
-  --header-accent: #2f5bea;
+  --header-bg: #0f2a52;
+  --header-text: #ffffff;
+  --header-muted: #c5d3ea;
+  --header-line: #1c3d73;
+  --header-accent: #8aa4ff;
 
   position: sticky;
   top: 0;
@@ -24,14 +24,19 @@ html {
   color: var(--header-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  .site-header {
-    --header-bg: #14161b;
-    --header-text: #eceff4;
-    --header-muted: #a3aab8;
-    --header-line: #2a2e37;
-    --header-accent: #8aa4ff;
-  }
+[data-bs-theme="dark"] .site-header {
+  --header-bg: #ffffff;
+  --header-text: #1a1d24;
+  --header-muted: #5b6270;
+  --header-line: #e3e6eb;
+  --header-accent: #1a60c1;
+}
+
+[data-bs-theme="dark"] .site-header__nav[data-open="true"] {
+  --header-bg: var(--bs-body-bg);
+  --header-text: var(--bs-body-color);
+  --header-muted: var(--bs-secondary-color);
+  --header-line: var(--bs-border-color);
 }
 
 .site-header__inner {

@@ -1,0 +1,41 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - development
+
+env:
+  BRANCH: development
+  DEPLOY_PATH: /home/web-portfolio/frontend
+  WEB_ROOT: /var/www/portfolio
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    if: github.repository == 'Aaron4554/web-portfolio'
+    steps:
+
+      - name: Pull latest
+        run: |
+          set -euo pipefail
+          cd ${{ env.DEPLOY_PATH }}
+          OLD=$(git rev-parse HEAD)
+          git pull origin ${{ env.BRANCH }}
+          NEW=$(git rev-parse HEAD)
+          if [ ! -d node_modules ] || ! git diff --quiet "$OLD" "$NEW" -- package-lock.json; then
+            npm ci --prefer-offline --no-audit --no-fund
+          fi
+
+      - name: Build
+        run: |
+          set -euo pipefail
+          cd ${{ env.DEPLOY_PATH }}
+          npm run build
+          test -f dist/index.html
+
+      - name: Deploy
+        run: |
+          set -euo pipefail
+          sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/dist/ ${{ env.WEB_ROOT }}/
+          sudo restorecon -Rv ${{ env.WEB_ROOT }}
