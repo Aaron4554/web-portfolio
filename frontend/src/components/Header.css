@@ -24,14 +24,6 @@ html {
   color: var(--header-text);
 }
 
-[data-bs-theme="dark"] .site-header {
-  --header-bg: var(--bs-body-bg);
-  --header-text: var(--bs-body-color);
-  --header-muted: var(--bs-secondary-color);
-  --header-line: var(--bs-border-color);
-  --header-accent: var(--bs-link-color);
-}
-
 .site-header__inner {
   position: relative;
   display: flex;
