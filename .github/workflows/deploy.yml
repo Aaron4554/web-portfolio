@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - learning
+
+env:
+  BRANCH: learning
+  DEPLOY_PATH: /home/web-portfolio
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Pull latest
+        run: |
+          cd ${{ env.DEPLOY_PATH}}
+          git pull origin ${{ env.BRANCH }}
+          npm install
+          npm run dev -- --host
