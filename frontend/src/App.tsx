@@ -1,7 +1,15 @@
+import Header from "./components/Header";
 import ListGroup from "./components/ListGroup";
 
 function App() {
-  return <div><ListGroup /></div>;
+  return (
+    <>
+      <Header />
+      <main>
+        <ListGroup />
+      </main>
+    </>
+  );
 }
 
 export default App;
