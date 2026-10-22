@@ -15,14 +15,27 @@ jobs:
     runs-on: self-hosted
     if: github.repository == 'Aaron4554/web-portfolio'
     steps:
-      - name: Build and deploy
+
+      - name: Pull latest
         run: |
-          cd ${{ env.DEPLOY_PATH}}
+          set -euo pipefail
+          cd ${{ env.DEPLOY_PATH }}
           OLD=$(git rev-parse HEAD)
           git pull origin ${{ env.BRANCH }}
-          if ! git diff --quiet $OLD HEAD -- package-lock.json; then
+          if ! git diff --quiet '$OLD' HEAD -- package-lock.json || [ ! -d node_modules ]; then
             npm ci --prefer-offline --no-audit --no-fund
           fi
+
+      - name: Build
+        run: |
+          set -euo pipefail
+          cd ${{ env.DEPLOY_PATH }}
           npm run build
+          test -f dist/index.html
+
+      - name: Deploy
+        run: |
+          set -euo pipefail
+          cd ${{ env.DEPLOY_PATH }}
           sudo rsync -a --delete dist/ ${{ env.WEB_ROOT }}/
           sudo restorecon -Rv ${{ env.WEB_ROOT }}
