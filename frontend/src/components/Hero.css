@@ -1,8 +1,8 @@
 .hero {
-  --hero-bg: var(--hero-bg);
-  --hero-text: var(--hero-text);
-  --hero-muted: var(--hero-muted);
-  --hero-accent: var(--hero-accent);
+  --hero-bg: var(--bs-body-bg);
+  --hero-text: var(--bs-body-color);
+  --hero-muted: var(--bs-secondary-color);
+  --hero-accent: var(--bs-link-color);
 
   display: flex;
   align-items: center;
