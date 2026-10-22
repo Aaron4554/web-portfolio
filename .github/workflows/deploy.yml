@@ -22,7 +22,8 @@ jobs:
           cd ${{ env.DEPLOY_PATH }}
           OLD=$(git rev-parse HEAD)
           git pull origin ${{ env.BRANCH }}
-          if ! git diff --quiet '$OLD' HEAD -- package-lock.json || [ ! -d node_modules ]; then
+          NEW=$(git rev-parse HEAD)
+          if [ ! -d node_modules ] || ! git diff --quiet "$OLD" "$NEW" -- package-lock.json; then
             npm ci --prefer-offline --no-audit --no-fund
           fi
 
@@ -36,6 +37,5 @@ jobs:
       - name: Deploy
         run: |
           set -euo pipefail
-          cd ${{ env.DEPLOY_PATH }}
-          sudo rsync -a --delete dist/ ${{ env.WEB_ROOT }}/
+          sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/dist/ ${{ env.WEB_ROOT }}/
           sudo restorecon -Rv ${{ env.WEB_ROOT }}
