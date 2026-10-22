@@ -10,11 +10,11 @@ html {
 }
 
 .site-header {
-  --header-bg: #0f2a52;
-  --header-text: #ffffff;
-  --header-muted: #c5d3ea;
-  --header-line: #1c3d73;
-  --header-accent: #8aa4ff;
+  --header-bg: #ffffff;
+  --header-text: #1a1d24;
+  --header-muted: #5b6270;
+  --header-line: #e3e6eb;
+  --header-accent: #1a60c1;
 
   position: sticky;
   top: 0;
