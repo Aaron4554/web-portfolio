@@ -10,11 +10,11 @@ html {
 }
 
 .site-header {
-  --header-bg: #ffffff;
+  --header-bg: #2f5bea;
   --header-text: #1a1d24;
   --header-muted: #5b6270;
   --header-line: #e3e6eb;
-  --header-accent: #2f5bea;
+  --header-accent: #071c33;
 
   position: sticky;
   top: 0;
@@ -26,11 +26,11 @@ html {
 
 @media (prefers-color-scheme: dark) {
   .site-header {
-    --header-bg: #14161b;
+    --header-bg: #0d3c79;
     --header-text: #eceff4;
     --header-muted: #a3aab8;
     --header-line: #2a2e37;
-    --header-accent: #8aa4ff;
+    --header-accent: #071c33;
   }
 }
 
