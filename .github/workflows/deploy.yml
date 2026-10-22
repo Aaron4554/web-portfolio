@@ -37,6 +37,5 @@ jobs:
       - name: Deploy
         run: |
           set -euo pipefail
-          cd ${{ env.DEPLOY_PATH }}
-          sudo rsync -a --delete dist/ ${{ env.WEB_ROOT }}/
+          sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/dist/ ${{ env.WEB_ROOT }}/
           sudo restorecon -Rv ${{ env.WEB_ROOT }}
