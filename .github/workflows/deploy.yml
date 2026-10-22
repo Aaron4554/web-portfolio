@@ -16,6 +16,9 @@ jobs:
       - name: Pull latest
         run: |
           cd ${{ env.DEPLOY_PATH}}
+          OLD=$(git rev-parse HEAD)
           git pull origin ${{ env.BRANCH }}
-          npm install
+          if ! git diff --quiet $OLD HEAD -- package-lock.json; then
+            npm ci --prefer-offline --no-audit --no-fund
+          fi
           npm run dev -- --host
