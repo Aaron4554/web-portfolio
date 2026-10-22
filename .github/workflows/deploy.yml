@@ -7,7 +7,7 @@ on:
 
 env:
   BRANCH: development
-  DEPLOY_PATH: /home/web-portfolio
+  DEPLOY_PATH: /home/web-portfolio/frontend
 
 jobs:
   deploy:
