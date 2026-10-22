@@ -8,12 +8,14 @@ on:
 env:
   BRANCH: development
   DEPLOY_PATH: /home/web-portfolio/frontend
+  WEB_ROOT: /var/www/portfolio
 
 jobs:
   deploy:
     runs-on: self-hosted
+    if: github.repository == 'Aaron4554/web-portfolio'
     steps:
-      - name: Pull latest
+      - name: Build and deploy
         run: |
           cd ${{ env.DEPLOY_PATH}}
           OLD=$(git rev-parse HEAD)
@@ -21,4 +23,6 @@ jobs:
           if ! git diff --quiet $OLD HEAD -- package-lock.json; then
             npm ci --prefer-offline --no-audit --no-fund
           fi
-          npm run dev -- --host
+          npm run build
+          sudo rsync -a --delete dist/ ${{ env.WEB_ROOT }}/
+          sudo restorecon -Rv ${{ env.WEB_ROOT }}
