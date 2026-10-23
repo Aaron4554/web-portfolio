@@ -33,10 +33,10 @@ html {
 }
 
 [data-bs-theme="dark"] .site-header__nav[data-open="true"] {
-  --header-bg: var(--bs-body-bg);
-  --header-text: var(--bs-body-color);
-  --header-muted: var(--bs-secondary-color);
-  --header-line: var(--bs-border-color);
+  --header-bg: #1a60c1;
+  --header-text: #ffffff;
+  --header-muted: #c5d3ea;
+  --header-line: #1c3d73;
 }
 
 .site-header__inner {
