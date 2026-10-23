@@ -25,7 +25,8 @@
 }
 
 .hero__name {
-  margin: 0;
+  margin: 0 0 -0.3em;
+  padding-bottom: 0.3em;
   font-size: clamp(2.75rem, 10vw, 6rem);
   font-weight: 800;
   line-height: 1;
