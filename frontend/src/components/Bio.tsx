@@ -1,29 +1,30 @@
+import Ink from "./Ink";
 import "./Bio.css";
 
 function Bio() {
   return (
     <section id="bio" className="bio">
       <div className="bio__inner">
-        <h2 className="bio__section">About me</h2>
-        <p className="bio__text">
+        <Ink className="bio__section">About me</Ink>
+        <Ink className="bio__text">
           I'm an undergrad student at the University of Michigan working towards
           my B.S in Software Engineering.
-        </p>
-        <h3 className="bio__section">Work history</h3>
-        <p className="bio__text">
+        </Ink>
+        <Ink className="bio__section">Work history</Ink>
+        <Ink className="bio__text">
           I've served over five years in the Michigan Air National Guard as a
           Network Engineer and maintainer at the 272D Cyber Operations Squaron.
           Where my primary role is to buildand maintain the CVA/H weapon system.
           As well as engineer our commercial network; focusing on data backups,
           deployment servers, kickstart files, and creating/managing user
           accounts.
-        </p>
-        <p className="bio__text">
+        </Ink>
+        <Ink className="bio__text">
           I'm the current tressuruer intern for Google Developers Group on
           Campus. Assisting with reimbursments and event planning
-        </p>
-        <h3 className="bio__section">Interests</h3>
-        <p className="bio__text">
+        </Ink>
+        <Ink className="bio__section">Interests</Ink>
+        <Ink className="bio__text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
           tincidunt ex eget risus posuere, in feugiat metus volutpat. Nulla sed
           mi vulputate, feugiat nisi id, mattis augue. Suspendisse pretium est
@@ -71,7 +72,7 @@ function Bio() {
           est. Nullam convallis purus ac nulla sollicitudin molestie. Mauris
           rutrum pretium rutrum. Pellentesque quis euismod metus. Integer
           viverra commodo velit non fermentum.
-        </p>
+        </Ink>
       </div>
     </section>
   );
