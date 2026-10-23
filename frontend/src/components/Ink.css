@@ -7,7 +7,8 @@
    gradients show only through the letters. */
 .ink__over {
   position: absolute;
-  inset: 0;
+  inset: -0.3em -0.1em;
+  padding: 0.3em 0.1;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
