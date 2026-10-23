@@ -20,7 +20,7 @@
 
 .bio__section {
   margin: 0 0 0.75rem;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
   font-weight: 600;
   color: var(--bio-accent);
 }
