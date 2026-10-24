@@ -1,0 +1,33 @@
+.interests {
+  --interests-bg: var(--bs-body-bg);
+  --interests-text: var(--bs-body-color);
+  --interests-muted: var(--bs-secondary-color);
+  --interests-accent: var(--bs-link-color);
+
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - 3.5rem);
+  background: var(--hero-bg);
+  color: var(--hero-text);
+}
+
+.interests__inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+.interests__section {
+  margin: 0.75rem 0 0.2rem;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 600;
+  color: var(--interests-accent);
+}
+
+.interests__text {
+  max-width: 130ch;
+  margin: 1.5rem 0 0;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}

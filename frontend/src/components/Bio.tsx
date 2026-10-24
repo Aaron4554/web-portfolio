@@ -20,7 +20,7 @@ function Bio() {
           accounts.
         </Ink>
         <Ink className="bio__text">
-          I'm the current tressuruer intern for Google Developers Group on
+          I'm the current treasurer intern for Google Developers Group on
           Campus. Assisting with reimbursments and event planning
         </Ink>
       </div>
