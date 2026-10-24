@@ -2,6 +2,7 @@
   --bio-bg: var(--bs-body-bg);
   --bio-text: var(--bs-body-color);
   --bio-muted: var(--bs-secondary-color);
+  --bio-accent: var(--bs-link-color);
 
   color: var(--bio-text);
 }
