@@ -5,6 +5,9 @@ on:
     branches:
       - development
 
+permissions:
+  contents: read
+
 env:
   BRANCH: development
   DEPLOY_PATH: /home/web-portfolio/frontend
