@@ -2,18 +2,14 @@ import { useRef, type PointerEvent } from "react";
 import Ink from "./Ink";
 import "./Interests.css";
 
-// Add or remove items freely; the grid adjusts.
 const INTERESTS = ["Containers", "Open-source", "AI/ML", "Quantum Computing"];
 
-// Tuning for the "nearby tiles get pushed away" effect.
 const PUSH_PX = 18; // how far the closest neighbors move
 const REACH = 2.2; // how far the push reaches, in tile widths
 
 function Interests() {
   const tilesRef = useRef<(HTMLLIElement | null)[]>([]);
 
-  // Push every other tile directly away from the hovered one. The strength
-  // fades with distance, and CSS transitions make the movement smooth.
   const pushAwayFrom = (active: number) => {
     const tiles = tilesRef.current;
     const a = tiles[active];

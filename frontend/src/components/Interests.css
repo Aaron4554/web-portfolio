@@ -12,8 +12,6 @@
   color: var(--bs-link-color);
 }
 
-/* Small gap between tiles. position: relative lets Interests.tsx measure
-   each tile's place in the grid. */
 .interests__grid {
   position: relative;
   display: grid;
@@ -24,10 +22,6 @@
   list-style: none;
 }
 
-/* No background on purpose: the circles are drawn behind the page, and a
-   tinted tile would wash them out and hurt the white-text contrast.
-   --dx and --dy are set from Interests.tsx to push tiles away from the
-   hovered one. */
 .interest-tile {
   position: relative;
   display: flex;
@@ -52,7 +46,6 @@
   line-height: 1.4;
 }
 
-/* Raise on hover (only on devices that actually hover). */
 @media (hover: hover) {
   .interest-tile:hover {
     z-index: 2;
