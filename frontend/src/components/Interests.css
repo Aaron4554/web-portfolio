@@ -1,29 +1,67 @@
-.interests {
-  --interests-bg: var(--bs-body-bg);
-  --interests-text: var(--bs-body-color);
-  --interests-muted: var(--bs-secondary-color);
-  --interests-accent: var(--bs-link-color);
-
-  color: var(--interests-text);
-}
-
 .interests__inner {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1.25rem 2rem;
 }
 
 .interests__section {
-  margin: 0.75rem 0 0.2rem;
+  margin: 0.75rem 0 1.25rem;
   font-size: clamp(1.75rem, 2.5vw, 2.5rem);
   font-weight: 600;
-  color: var(--interests-accent);
+  color: var(--bs-link-color);
 }
 
-.interests__text {
-  max-width: 130ch;
-  margin: 1.5rem 0 0;
-  font-size: 1.5rem;
-  line-height: 1.6;
+/* As many columns as fit (at least 15rem each), one column on a phone. */
+.interests__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* No background on purpose: the circles are drawn behind the page, and a
+   tinted card would wash them out and hurt the white-text contrast. */
+.interest-card {
+  padding: 1.25rem 1.25rem 1.35rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 14px;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+}
+
+.interest-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.interest-card__text {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--bs-secondary-color);
+}
+
+/* Raise on hover (only on devices that actually hover). */
+@media (hover: hover) {
+  .interest-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--bs-link-color);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interest-card {
+    transition: none;
+  }
+
+  .interest-card:hover {
+    transform: none;
+  }
 }
