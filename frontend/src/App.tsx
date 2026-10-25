@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Bio from "./components/Bio";
 import Interests from "./components/Interests";
+import Tools from "./components/Tools";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Hero />
         <Bio />
         <Interests />
+        <Tools />
       </main>
     </BubbleBackground>
   );
