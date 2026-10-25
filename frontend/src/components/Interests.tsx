@@ -2,7 +2,7 @@ import { useRef, type PointerEvent } from "react";
 import Ink from "./Ink";
 import "./Interests.css";
 
-const INTERESTS = ["Containers", "Open-source", "AI/ML", "Quantum Computing"];
+const INTERESTS = ["Containers", "Open-source", "Self hosting", "AI/ML", "Quantum Computing"];
 
 const PUSH_PX = 18; // how far the closest neighbors move
 const REACH = 2.2; // how far the push reaches, in tile widths
