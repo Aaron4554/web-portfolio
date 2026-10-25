@@ -5,8 +5,8 @@ on:
     branches:
       - development
 
-  permissions:
-    contents: read
+permissions:
+  contents: read
 
 env:
   BRANCH: development
