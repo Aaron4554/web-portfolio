@@ -12,7 +12,7 @@ const CERTIFICATIONS: Record<string, { name: string; abbrev?: string }> = {
 };
 
 const label = ({ name, abbrev }: Certification) =>
-  abbrev ? `${abbrev} \u00B7 ${name} \u2197\uFE0E` : `${name} \u2197`;
+  abbrev ? `${abbrev} \u00B7 ${name} \u2197\uFE0E` : `${name} \u2197\uFE0E`;
 
 function Certifications() {
   const { gridProps, tileProps } = usePushTiles();
