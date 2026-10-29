@@ -22,7 +22,7 @@
   list-style: none;
 }
 
-.tools-tile {
+.tool-tile {
   position: relative;
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@
     border-color 0.3s ease;
 }
 
-.tools-tile__text {
+.tool-tile__text {
   margin: 0;
   font-size: 1.05rem;
   font-weight: 600;
@@ -47,7 +47,7 @@
 }
 
 @media (hover: hover) {
-  .tools-tile:hover {
+  .tool-tile:hover {
     z-index: 2;
     transform: translateY(-8px) scale(1.06);
     border-color: var(--bs-link-color);
@@ -56,11 +56,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tools-tile {
+  .tool-tile {
     transition: none;
   }
 
-  .tools-tile:hover {
+  .tool-tile:hover {
     transform: none;
   }
 }
