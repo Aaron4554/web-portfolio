@@ -4,11 +4,29 @@ import "./Certifications.css";
 
 type Certification = { name: string; abbrev?: string };
 
-const CERTIFICATIONS: Record<string, { name: string; abbrev?: string }> = {
-  SEC: { name: "Security+" },
-  CPE: { name: "C++ Entry-Level", abbrev: "CPE" },
-  PCAP: { name: "Python Associate", abbrev: "PCAP" },
-  PCEP: { name: "Python Entry-Level", abbrev: "PCEP" },
+const CERTIFICATIONS: Record<
+  string,
+  { name: string; abbrev?: string; link: string }
+> = {
+  SEC: {
+    name: "Security+",
+    link: "https://cp.certmetrics.com/comptia/en/public/verify/credential/7VHMYW15KJ11Q0W3",
+  },
+  CPE: {
+    name: "C++ Entry-Level",
+    abbrev: "CPE",
+    link: "https://verify.openedg.org/?id=zcat.t3rg.fHvv",
+  },
+  PCAP: {
+    name: "Python Associate",
+    abbrev: "PCAP",
+    link: "https://verify.openedg.org/?id=yYLN.F2vP.jt8V",
+  },
+  PCEP: {
+    name: "Python Entry-Level",
+    abbrev: "PCEP",
+    link: "https://verify.openedg.org/?id=ZGdn.2dwb.k8kd",
+  },
 };
 
 const label = ({ name, abbrev }: Certification) =>
@@ -25,9 +43,16 @@ function Certifications() {
         </Ink>
         <ul className="certifications__grid" {...gridProps}>
           {Object.entries(CERTIFICATIONS).map(([key, cert], i) => (
-            <li key={key} className="certification-tile" {...tileProps(i)}>
-              <Ink className="certification-tile__text">{label(cert)}</Ink>
-            </li>
+            <a
+              key={key}
+              href={cert.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <li key={key} className="certification-tile" {...tileProps(i)}>
+                <Ink className="certification-tile__text">{label(cert)}</Ink>
+              </li>
+            </a>
           ))}
         </ul>
       </div>
