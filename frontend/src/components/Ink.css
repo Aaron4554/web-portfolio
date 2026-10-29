@@ -1,0 +1,16 @@
+.ink {
+  position: relative;
+}
+
+/* Transparent copy of the text on top. BubbleBackground sets its
+   background-image to the circles, and background-clip: text makes the
+   gradients show only through the letters. */
+.ink__over {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+}

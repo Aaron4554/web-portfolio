@@ -1,14 +1,21 @@
+import BubbleBackground from "./components/BubbleBackground";
 import Header from "./components/Header";
-import ListGroup from "./components/ListGroup";
+import Hero from "./components/Hero";
+import Bio from "./components/Bio";
+import Interests from "./components/Interests";
+import Tools from "./components/Tools";
 
 function App() {
   return (
-    <>
+    <BubbleBackground>
       <Header />
       <main>
-        <ListGroup />
+        <Hero />
+        <Bio />
+        <Interests />
+        <Tools />
       </main>
-    </>
+    </BubbleBackground>
   );
 }
 
