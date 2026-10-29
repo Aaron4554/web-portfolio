@@ -46,6 +46,12 @@
   line-height: 1.4;
 }
 
+.certification-tile__text .arrow {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
 @media (hover: hover) {
   .certification-tile:hover {
     z-index: 2;
