@@ -48,6 +48,7 @@ function Certifications() {
               href={cert.link}
               target="_blank"
               rel="noopener noreferrer"
+              style={{textDecoration: "none"}}
             >
               <li key={key} className="certification-tile" {...tileProps(i)}>
                 <Ink className="certification-tile__text">{label(cert)}</Ink>
