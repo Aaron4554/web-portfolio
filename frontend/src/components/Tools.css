@@ -22,7 +22,7 @@
   list-style: none;
 }
 
-.tools-tile {
+.tool-tile {
   position: relative;
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@
     border-color 0.3s ease;
 }
 
-.tools-tile__text {
+.tool-tile__text {
   margin: 0;
   font-size: 1.05rem;
   font-weight: 600;
