@@ -41,7 +41,7 @@ function Certifications() {
         <Ink as="h2" className="certifications__section">
           Certifications
         </Ink>
-        <ul className="certifications__grid" {...gridProps}>
+        <ul className="tile__grid" {...gridProps}>
           {Object.entries(CERTIFICATIONS).map(([key, cert], i) => (
             <a
               key={key}
@@ -50,8 +50,8 @@ function Certifications() {
               rel="noopener noreferrer"
               style={{ textDecoration: "none" }}
             >
-              <li key={key} className="certification-tile" {...tileProps(i)}>
-                <Ink className="certification-tile__text">{label(cert)}</Ink>
+              <li key={key} className="tile" {...tileProps(i)}>
+                <Ink className="tile__text">{label(cert)}</Ink>
               </li>
             </a>
           ))}
