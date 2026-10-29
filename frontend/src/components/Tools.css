@@ -47,7 +47,7 @@
 }
 
 @media (hover: hover) {
-  .tools-tile:hover {
+  .tool-tile:hover {
     z-index: 2;
     transform: translateY(-8px) scale(1.06);
     border-color: var(--bs-link-color);
@@ -56,11 +56,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tools-tile {
+  .tool-tile {
     transition: none;
   }
 
-  .tools-tile:hover {
+  .tool-tile:hover {
     transform: none;
   }
 }
