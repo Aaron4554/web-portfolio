@@ -1,7 +1,7 @@
 @import "./tiles.css";
 
 .certifications {
-  --tile-min: 16rem;
+  --tile-min: 18rem;
 }
 
 .certifications__inner {
