@@ -1,3 +1,5 @@
+@import "./tiles.css";
+
 .tools__inner {
   width: 100%;
   max-width: 1100px;
