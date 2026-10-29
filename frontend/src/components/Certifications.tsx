@@ -2,12 +2,17 @@ import Ink from "./Ink";
 import { usePushTiles } from "../hooks/usePushTiles";
 import "./Certifications.css";
 
-const CERTIFICATIONS = [
-  "Security+",
-  "CPE C++ Entry-Level",
-  "PCAP Python Associate",
-  "PCEP Python Entry-Level",
-];
+type Certification = { name: string; abbrev?: string };
+
+const CERTIFICATIONS: Record<string, { name: string; abbrev?: string}> ={
+  SEC: { name: "Security+" },
+  CPE: { name:"C++ Entry-Level", abbrev:"CPE" },
+  PCAP: { name:"Python Associate", abbrev:"PCAP" },
+  PCEP: { name:"Python Entry-Level", abbrev:"PCEP" },
+};
+
+const label = ({name, abbrev}: Certification) =>
+  abbrev ? `${abbrev} \u00B7 ${name} \u2197` : `${name} \u2197`;
 
 function Certifications() {
   const { gridProps, tileProps } = usePushTiles();
@@ -19,9 +24,9 @@ function Certifications() {
           Certifications
         </Ink>
         <ul className="certifications__grid" {...gridProps}>
-          {CERTIFICATIONS.map((item, i) => (
-            <li key={item} className="certification-tile" {...tileProps(i)}>
-              <Ink className="certification-tile__text">{item}</Ink>
+          {Object.entries(CERTIFICATIONS).map(([key, cert], i) => (
+            <li key={key} className="certification-tile" {...tileProps(i)}>
+              <Ink className="certification-tile__text">{label(cert)}</Ink>
             </li>
           ))}
         </ul>
