@@ -1,3 +1,9 @@
+@import "./tiles.css";
+
+.certifications {
+  --tile-min: 16rem;
+}
+
 .certifications__inner {
   width: 100%;
   max-width: 1100px;
