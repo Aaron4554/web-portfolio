@@ -1,5 +1,5 @@
 import Ink from "./Ink";
-import { usePushTiles } from "../hooks/usePushTiles";
+import { usePushTiles } from "../hooks/usePushTiles.ts";
 import "./Tools.css";
 
 const TOOLS = [
