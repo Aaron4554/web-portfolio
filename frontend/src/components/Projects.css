@@ -36,9 +36,7 @@
   padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--bs-border-color);
   text-align: center;
-  a {
-    color: var(--bs-link-color);
-  }
+  color: var(--bs-link-color);
 }
 
 .project__body {
