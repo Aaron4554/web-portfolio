@@ -28,7 +28,7 @@ function Tools() {
         <Ink as="h2" className="tools__section">
           Tools
         </Ink>
-        <ul className="tiles__grid" {...gridProps}>
+        <ul className="tile__grid" {...gridProps}>
           {TOOLS.map((item, i) => (
             <li key={item} className="tile" {...tileProps(i)}>
               <Ink className="tile__text">{item}</Ink>
