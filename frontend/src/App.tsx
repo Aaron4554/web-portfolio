@@ -5,6 +5,7 @@ import Bio from "./components/Bio";
 import Interests from "./components/Interests";
 import Tools from "./components/Tools";
 import Certifications from "./components/Certifications";
+import Projects from "./components/Projects";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Interests />
         <Tools />
         <Certifications />
+        <Projects />
       </main>
     </BubbleBackground>
   );

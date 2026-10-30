@@ -30,6 +30,11 @@ const PROJECTS: Project[] = [
       "github",
     ],
   },
+  {
+    name: "Home lab",
+    description: "Oh goddness I have to write documentation for the homelab..",
+    tools: ["Proxmox", "Fedora-Server", "Docker", "LXCs", "Cisco", "Portainer"],
+  },
 ];
 
 function ProjectCard({ name, description, tools }: Project) {
