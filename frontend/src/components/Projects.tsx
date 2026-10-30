@@ -11,7 +11,7 @@ type Project = {
 
 /* Template
   {
-    name: "Project",
+    name: "Project \u2197\uFE0E",
     description:
     "Replace this with a short description of the project: what it does and what you built.",
     tools: ["Item1", "Item2", "Item3"],
@@ -19,7 +19,7 @@ type Project = {
 */
 const PROJECTS: Project[] = [
   {
-    name: "Portfolio site",
+    name: "Portfolio site \u2197\uFE0E",
     description: "Placeholder text.",
     tools: [
       "Nginx",
@@ -33,7 +33,7 @@ const PROJECTS: Project[] = [
     link: "https://github.com/Aaron4554/web-portfolio",
   },
   {
-    name: "Home lab",
+    name: "Home lab \u2197\uFE0E",
     description: "Oh goddness I have to write documentation for the homelab..",
     tools: ["Proxmox", "Fedora-Server", "Docker", "LXCs", "Cisco", "Portainer"],
     link: "https://github.com/Aaron4554/homelab",
