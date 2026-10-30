@@ -2,7 +2,7 @@
 
 .certifications {
   --tile-min: 15rem;
-  color: var(--bs-link-color)
+  color: var(--bs-link-color);
 }
 .certifications__inner {
   width: 100%;
