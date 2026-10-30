@@ -12,6 +12,11 @@
      --tile-gap: 0.5rem;  space between tiles
 */
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .tile__grid {
   position: relative;
   display: grid;

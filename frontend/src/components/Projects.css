@@ -36,11 +36,15 @@
   padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--bs-border-color);
   text-align: center;
+  a {
+    color: inherit;
+  }
 }
 
 .project__body {
   padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--bs-border-color);
+  text-align: center;
 }
 
 .project__tools {

@@ -1,5 +1,9 @@
 @import "./Tiles.css";
 
+a {
+  color: revert;
+}
+
 .certifications {
   --tile-min: 15rem;
 }
