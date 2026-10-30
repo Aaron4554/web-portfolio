@@ -12,7 +12,7 @@
      --tile-gap: 0.5rem;  space between tiles
 */
 
-.tile-grid {
+.tile__grid {
   position: relative;
   display: grid;
   grid-template-columns: repeat(
