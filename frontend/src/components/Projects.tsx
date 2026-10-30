@@ -6,6 +6,7 @@ type Project = {
   name: string;
   description: string;
   tools: string[];
+  link: string;
 };
 
 /* Template
@@ -29,36 +30,40 @@ const PROJECTS: Project[] = [
       "git",
       "github",
     ],
+    link: "https://github.com/Aaron4554/web-portfolio",
   },
   {
     name: "Home lab",
     description: "Oh goddness I have to write documentation for the homelab..",
     tools: ["Proxmox", "Fedora-Server", "Docker", "LXCs", "Cisco", "Portainer"],
+    link: "https://github.com/Aaron4554/homelab",
   },
 ];
 
-function ProjectCard({ name, description, tools }: Project) {
+function ProjectCard({ name, description, tools, link }: Project) {
   const { gridProps, tileProps } = usePushTiles({ pushPx: 10 });
 
   return (
     <li className="project">
-      <div className="project__header">
-        <Ink as="h3" className="project__name">
-          {name}
-        </Ink>
-      </div>
-      <div className="project__body">
-        <Ink className="project__description">{description}</Ink>
-      </div>
-      <div className="project__tools">
-        <ul className="tile-grid" aria-label="Tools used" {...gridProps}>
-          {tools.map((tool, i) => (
-            <li key={tool} className="tile" {...tileProps(i)}>
-              <Ink className="tile__text">{tool}</Ink>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <div className="project__header">
+          <Ink as="h3" className="project__name">
+            {name}
+          </Ink>
+        </div>
+        <div className="project__body">
+          <Ink className="project__description">{description}</Ink>
+        </div>
+        <div className="project__tools">
+          <ul className="tile-grid" aria-label="Tools used" {...gridProps}>
+            {tools.map((tool, i) => (
+              <li key={tool} className="tile" {...tileProps(i)}>
+                <Ink className="tile__text">{tool}</Ink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </a>
     </li>
   );
 }
