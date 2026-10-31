@@ -46,7 +46,6 @@
 }
 
 .project__tools {
-  --tile-min: 9rem;
   padding: 1.25rem;
 }
 
@@ -60,15 +59,6 @@
 .project__description {
   margin: 0;
   line-height: 1.6;
-}
-
-.project .tile {
-  min-height: 2.75rem;
-  padding: 0.5rem 0.75rem;
-}
-
-.project .tile__text {
-  font-size: 0.95rem;
 }
 
 @media (hover: hover) {

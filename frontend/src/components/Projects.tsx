@@ -35,7 +35,15 @@ const PROJECTS: Project[] = [
   {
     name: "Home lab \u2197\uFE0E",
     description: "Oh goddness I have to write documentation for the homelab..",
-    tools: ["Proxmox", "Fedora-Server", "Docker", "LXCs", "Cisco", "Portainer", "Ansible"],
+    tools: [
+      "Proxmox",
+      "Fedora-Server",
+      "Docker",
+      "LXCs",
+      "Cisco",
+      "Portainer",
+      "Ansible",
+    ],
     link: "https://github.com/Aaron4554/homelab",
   },
 ];
