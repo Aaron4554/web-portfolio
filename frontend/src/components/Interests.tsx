@@ -19,10 +19,10 @@ function Interests() {
         <Ink as="h2" className="interests__section">
           Interests
         </Ink>
-        <ul className="interests__grid" {...gridProps}>
+        <ul className="tile__grid" {...gridProps}>
           {INTERESTS.map((item, i) => (
-            <li key={item} className="interest-tile" {...tileProps(i)}>
-              <Ink className="interest-tile__text">{item}</Ink>
+            <li key={item} className="tile" {...tileProps(i)}>
+              <Ink className="tile__text">{item}</Ink>
             </li>
           ))}
         </ul>
