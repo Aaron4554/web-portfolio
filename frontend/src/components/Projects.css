@@ -50,6 +50,16 @@
 }
 
 .project__name {
+.project__tools > ul {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, (8rem, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
