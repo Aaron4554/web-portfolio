@@ -44,17 +44,3 @@ jobs:
           set -euo pipefail
           sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/dist/ ${{ env.WEB_ROOT }}/
           sudo restorecon -Rv ${{ env.WEB_ROOT }}
-      steps:
-        - name: Pull latest
-          run: |
-            cd ${{ env.DEPLOY_PATH}}
-            git pul origin ${{ env.BRANCH }}
-            npm install
-            npm run build -- --host
-    steps:
-      - name: Pull latest
-        run: |
-          cd ${{ env.DEPLOY_PATH}}
-          git pul origin ${{ env.BRANCH }}
-          npm install
-          npm run build -- --host
