@@ -13,7 +13,6 @@ env:
   DEPLOY_PATH: /home/web-portfolio/frontend
   WEB_ROOT: /var/www/portfolio
 
-
 jobs:
   deploy:
     runs-on: self-hosted
