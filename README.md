@@ -13,5 +13,6 @@ WSL's firewall blocks the ports I use, making sites (or containers I run) non-ex
 The staging site is hosted on my server (R720).
 
 ## TODO
-1.Home server hosts frontend. When a User clicks a link, their UID from their header needs to be grabbed and request post requested to a middleware API; that, after verification, sends a get request to a backend database.
+1. Home server holds front end (currently the entire folder of web-portfolio, should move everything in here to /web-portfolio/frontend). When user clicks a link (LinkedIn, Github, Email, Github), collect UID from header, send post request to a middleware API (inside /web-portfolio/middleware) that then sends a get request to a backend (inside /web-portfolio/backend) backend being a simple python script that grabs from a file, or better, a SQL/noSQL database.
 2. Make staging.ajrtech.dev exclusivly available if VPN enabled back to home server.
+3. Keep learning PostgreSQL and SQL
