@@ -1,11 +1,11 @@
 # A web portfolio project built with React, Typescript, Oxlint.
 Development - staging.ajrtech.dev\
 Production - portfolio.ajrtech.dev\
-Domain: ajrtech - Cloudflare
+Domain: ajrtech.dev - Cloudflare
 
 ## CICD
 Github runner:
-Runners (to be) implemented in both Development and Production environments.
+Runner is implemented in Development and will be in Production once prod is stood up.
 On push. Runner pulls code, cd's to the deployment path, pulls down changes, npm install, npm run dev -- --host
 
 ## Learning notes
