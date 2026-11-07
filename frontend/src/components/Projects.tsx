@@ -29,6 +29,8 @@ const PROJECTS: Project[] = [
       "Cloudflare tunnel",
       "Git",
       "Github",
+      "PostgreSQL",
+      "APIs",
     ],
     link: "https://github.com/Aaron4554/web-portfolio",
   },
