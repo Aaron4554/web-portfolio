@@ -18,3 +18,14 @@
   font-weight: 600;
   color: var(--bs-link-color);
 }
+
+.contact .tile__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact .tile {
+  flex: 0 1 var(--tile-min);
+  border: none;
+}
