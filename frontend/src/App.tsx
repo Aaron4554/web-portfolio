@@ -6,6 +6,7 @@ import Interests from "./components/Interests";
 import Tools from "./components/Tools";
 import Certifications from "./components/Certifications";
 import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Tools />
         <Certifications />
         <Projects />
+        <Contact />
       </main>
     </BubbleBackground>
   );
