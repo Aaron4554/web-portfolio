@@ -1,0 +1,31 @@
+@import "./Tiles.css";
+
+.contact {
+  text-align: center;
+  --tile-min: 15rem;
+  color: var(--bs-link-color);
+}
+.contact__inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+}
+
+.contact__section {
+  margin: 0.75rem 0 1.25rem;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 600;
+  color: var(--bs-link-color);
+}
+
+.contact .tile__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact .tile {
+  flex: 0 1 var(--tile-min);
+  border: none;
+}
