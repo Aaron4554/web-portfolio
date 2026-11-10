@@ -10,7 +10,7 @@ permissions:
 
 env:
   BRANCH: development
-  DEPLOY_PATH: /home/web-portfolio/frontend
+  DEPLOY_PATH: /home/web-portfolio-staging/frontend
   WEB_ROOT: /var/www/staging
 
 jobs:
