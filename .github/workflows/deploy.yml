@@ -1,4 +1,4 @@
-name: Deploy
+name: Development
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 env:
   BRANCH: development
   DEPLOY_PATH: /home/web-portfolio/frontend
-  WEB_ROOT: /var/www/portfolio
+  WEB_ROOT: /var/www/staging
 
 jobs:
   deploy:
