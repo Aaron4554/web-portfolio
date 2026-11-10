@@ -20,7 +20,7 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     name: "Web Portfolio \u2197\uFE0E",
-    description: "Placeholder text.",
+    description: "A self-hosted portfolio with an automated deploy pipeline.",
     tools: [
       "Nginx",
       "React",
@@ -29,14 +29,13 @@ const PROJECTS: Project[] = [
       "Cloudflare tunnel",
       "Git",
       "Github",
-      "PostgreSQL",
-      "APIs",
+      "Github actions",
     ],
     link: "https://github.com/Aaron4554/web-portfolio",
   },
   {
     name: "Home lab \u2197\uFE0E",
-    description: "Oh goddness I have to write documentation for the homelab..",
+    description: "It ain\'t much, but it\'s honest work.",
     tools: [
       "Proxmox",
       "Fedora-Server",
