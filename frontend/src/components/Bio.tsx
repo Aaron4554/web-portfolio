@@ -14,10 +14,10 @@ function Bio() {
         <Ink className="bio__text">
           I've served over five years in the Michigan Air National Guard as a
           Network Engineer and maintainer at the 272D Cyber Operations Squaron.
-          Where my primary role is to buildand maintain the CVA/H weapon system.
-          As well as engineer our commercial network; focusing on data backups,
-          deployment servers, kickstart files, and creating/managing user
-          accounts.
+          Where my primary role is to build and maintain the CVA/H weapon
+          system. As well as engineer our commercial network; focusing on data
+          backups, deployment servers, kickstart files, and creating/managing
+          user accounts.
         </Ink>
         <Ink className="bio__text">
           I'm the current treasurer intern for Google Developers Group on
