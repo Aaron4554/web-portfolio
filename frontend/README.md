@@ -8,8 +8,9 @@ Github runner:
 On push. Runner pulls code, cd's to the deployment path, pulls down changes, npm install, npm run dev -- --host.
 
 ## TODO - In no particular order
-1. Add a 'click' event to tiles. mouseDown event - Raise tile stright up. mouseUp event - Drop tile, *waves wow*.
-2. For tiles with links. mouseDown event - Raise tile straight up. mouseUp event - turn tile (lightmode: white; darkmode: grey) and expand to fill screen. Then open link in same page.
+1. In mobile view, header should close on scroll.
+2. Add a 'click' event to tiles. mouseDown event - Raise tile stright up. mouseUp event - Drop tile, *waves wow*.
+3. For tiles with links. mouseDown event - Raise tile straight up. mouseUp event - turn tile (lightmode: white; darkmode: grey) and expand to fill screen. Then open link in same page.
 
 ## Learning notes
 WSL's firewall blocks the ports I use, making sites (or containers I run) non-existant.\
