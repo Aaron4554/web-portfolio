@@ -6,7 +6,7 @@ psql_as_super(){
 		psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" "$@"
 	}
 	psql_as_super --dbname postgres \
-		-v admin_pw="$PORTFOLIO_ADMIN_PASWORD" \
+		-v admin_pw="$PORTFOLIO_ADMIN_PASSWORD" \
 		-v ro_pw="$PORTFOLIO_RO_PASSWORD" <<'SQL'
 CREATE ROLE portfolio_admin LOGIN PASSWORD :'admin_pw';
 CREATE ROLE portfolio_ro    LOGIN PASSWORD :'ro_pw';
