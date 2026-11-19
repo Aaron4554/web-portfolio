@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:${POSTGRES_VERSION:-18}
+    container_name: portfolio_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?set POSTGRES_USER in .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:?set POSTGRES_DB in .env}
+
+      EXTRA_DATABASES: ${EXTRA_DATABASES:-}
+      PORTFOLIO_ADMIN_PASSWORD: ${PORTFOLIO_ADMIN_PASSWORD:?set PORTFOLIO_ADMIN_PASSWORD in .env}
+      PORTFOLIO_RO_PASSWORD: ${PORTFOLIO_RO_PASSWORD:?set PORTFOLIO_RO_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+      - ./init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  pgdata:
