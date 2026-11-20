@@ -29,3 +29,7 @@ db/
 ## PostgreSQL accounts:
 portfolio_admin - Read and write permissions\
 portfolio_ro - Read only permissions, this is what middleware will use, and the only thing the frontend/users will have access to
+
+### TODO
+1. Write seed.sql
+2. make deploy action run sql scripts
