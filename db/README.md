@@ -18,6 +18,10 @@ db/
   .env.example
 ```
 
+## Database structure
+Prod and Dev are mirrors, while not being updated/tested
+
+
 ## PostgreSQL accounts:
 portfolio_admin - Read and write permissions
 portfolio_ro - Read only permissions, this is what middleware will use, and the only thing the frontend/users will have access to
