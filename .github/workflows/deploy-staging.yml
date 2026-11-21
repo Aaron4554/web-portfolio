@@ -10,9 +10,10 @@ permissions:
 
 env:
   BRANCH: development
-  DEPLOY_PATH: /home/web-portfolio-staging/
+  DEPLOY_PATH: /home/web-portfolio-staging
   WEB_ROOT: /var/www/staging
   DB_NAME: dev_db
+  POSTGRES_NAME: postgres
 
 jobs:
   deploy:
@@ -24,8 +25,8 @@ jobs:
       - name: Check databse
         run: |
           set -euo pipefail
-          if ! pg_isready -h 127.0.0.1 -p 5432 -t 5; then
-            echo"::error title=Database unreachable::Postgres is not accepting connections on 127.0.0.1:5432. Make sure it's running."
+          if ! sudo /usr/bin/docker compose -f "${{ env.DEPLOY_PATH }}/db/docker-compose.yml" exec -T ${{ env.POSTGRES_NAME }} pg_isready -U postgres -h 127.0.0.1 -p 5432 -t 5 >/dev/null 2>&1; then
+            echo "::error title=Database unreachable::Postgres is not accepting connections on 127.0.0.1:5432. Make sure it's running."
             exit 1
           fi
 
