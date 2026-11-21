@@ -3,7 +3,7 @@ set -euo pipefail
 
 DB="${1:?usage: bash/db/migrate.sh <database name>}"
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/migrations"
-PSQL=(psql -h 127.0.0.1 -p 5432 -U portfolio_admin -d "$DB" -X -q -v ON_ERROR_STOP=1)
+PSQL=(/usr/bin/docker compose -f /home/web-portfolio-staging/db/docker-compose.yml exec -T postgres psql -h 127.0.0.1 -p 5432 -U portfolio_admin -d "$DB" -X -q -v ON_ERROR_STOP=1)
 
 "${PSQL[@]}" -c "CREATE TABLE IF NOT EXISTS schema_migrations (
   filename  text PRIMARY KEY,
