@@ -32,7 +32,7 @@ jobs:
 
       - name: Pull latest
         run: |
-          set -eou pipefail
+          set -euo pipefail
           cd ${{ env.DEPLOY_PATH }}
           git pull origin ${{ env.BRANCH }}
 
@@ -46,7 +46,7 @@ jobs:
         run: |
           set -euo pipefail
           cd ${{ env.DEPLOY_PATH }}/frontend
-          if [ ! -d node_modules ] || ! git diff --quiet "$OLD" "$NEW" -- package-lock.json; then
+          if [ ! -d node_modules ] || [ ! -f node_modules/.lock.sha256 ] || ! sha256sum -c --status node_modules/.lock.sha256 >/dev/null 2>&1; then
             npm ci --prefer-offline --no-audit --no-fund
             sha256sum package-lock.json > node_modules/.lock.sha256
           fi
