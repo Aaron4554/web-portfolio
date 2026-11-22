@@ -13,7 +13,7 @@ env:
   DEPLOY_PATH: /home/web-portfolio-staging
   WEB_ROOT: /var/www/staging
   DB_NAME: dev_db
-  POSTGRES_NAME: postgres
+  POSTGRES_NAME: postgres  # if name changes, update sudoers rule
 
 jobs:
   deploy:
