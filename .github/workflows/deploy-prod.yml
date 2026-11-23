@@ -10,7 +10,7 @@ permissions:
 
 env:
   BRANCH: main
-  DEPLOY_PATH: /home/web-portfolio-production/frontend
+  DEPLOY_PATH: /home/web-portfolio-production
   WEB_ROOT: /var/www/portfolio
   DB_NAME: prod_db
   POSTGRES_NAME: postgres  # if name changes, update sudoers rule
