@@ -10,8 +10,10 @@ permissions:
 
 env:
   BRANCH: main
-  DEPLOY_PATH: /home/web-portfolio-production/frontend
+  DEPLOY_PATH: /home/web-portfolio-production
   WEB_ROOT: /var/www/portfolio
+  DB_NAME: prod_db
+  POSTGRES_NAME: postgres  # if name changes, update sudoers rule
 
 jobs:
   deploy:
@@ -19,26 +21,46 @@ jobs:
     if: github.repository == 'Aaron4554/web-portfolio'
     steps:
 
+      # Database check
+      - name: Check databse
+        run: |
+          set -euo pipefail
+          if ! sudo /usr/bin/docker compose -f "${{ env.DEPLOY_PATH }}/db/docker-compose.yml" exec -T ${{ env.POSTGRES_NAME }} pg_isready -U postgres -h 127.0.0.1 -p 5432 -t 5 >/dev/null 2>&1; then
+            echo "::error title=Database unreachable::Postgres is not accepting connections on 127.0.0.1:5432. Make sure it's running."
+            exit 1
+          fi
+
       - name: Pull latest
         run: |
           set -euo pipefail
           cd ${{ env.DEPLOY_PATH }}
-          OLD=$(git rev-parse HEAD)
           git pull origin ${{ env.BRANCH }}
-          NEW=$(git rev-parse HEAD)
-          if [ ! -d node_modules ] || ! git diff --quiet "$OLD" "$NEW" -- package-lock.json; then
+
+      - name: Migrate database
+        run: |
+          set -euo pipefail
+          bash ${{ env.DEPLOY_PATH }}/db/migrate.sh "${{ env.DB_NAME }}"
+
+      # Start building frontend
+      - name: update npm
+        run: |
+          set -euo pipefail
+          cd ${{ env.DEPLOY_PATH }}/frontend
+          if [ ! -d node_modules ] || [ ! -f node_modules/.lock.sha256 ] || ! sha256sum -c --status node_modules/.lock.sha256 >/dev/null 2>&1; then
             npm ci --prefer-offline --no-audit --no-fund
+            sha256sum package-lock.json > node_modules/.lock.sha256
           fi
+
 
       - name: Build
         run: |
           set -euo pipefail
-          cd ${{ env.DEPLOY_PATH }}
+          cd ${{ env.DEPLOY_PATH }}/frontend
           npm run build
           test -f dist/index.html
 
       - name: Deploy
         run: |
           set -euo pipefail
-          sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/dist/ ${{ env.WEB_ROOT }}/
+          sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/frontend/dist/ ${{ env.WEB_ROOT }}/
           sudo restorecon -Rv ${{ env.WEB_ROOT }}
