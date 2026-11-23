@@ -55,12 +55,12 @@ jobs:
       - name: Build
         run: |
           set -euo pipefail
-          cd ${{ env.DEPLOY_PATH }}
+          cd ${{ env.DEPLOY_PATH }}/frontend
           npm run build
           test -f dist/index.html
 
       - name: Deploy
         run: |
           set -euo pipefail
-          sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/dist/ ${{ env.WEB_ROOT }}/
+          sudo rsync -a --delete ${{ env.DEPLOY_PATH }}/frontend/dist/ ${{ env.WEB_ROOT }}/
           sudo restorecon -Rv ${{ env.WEB_ROOT }}
