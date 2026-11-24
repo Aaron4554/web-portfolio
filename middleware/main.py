@@ -17,17 +17,17 @@ def main():
 def load():
     load_dotenv()
 
-    environment = getenv('APP_ENV', 'dev')
+    environment = getenv("APP_ENV", "dev")
     try:
-        if environment == 'dev':
-            db_name = require_env('DEV_DB_NAME')
-        elif environment == 'prod':
-            db_name = require_env('PROD_DB_NAME')
+        if environment == "dev":
+            db_name = require_env("DEV_DB_NAME")
+        elif environment == "prod":
+            db_name = require_env("PROD_DB_NAME")
         else:
-            raise ValueError(f'Invalid APP_ENV: {environment}')
-        db_host = require_env('DB_HOST')
-        db_port = require_env('DB_PORT')
-        db_passwd = require_env('PORTFOLIO_RO_PASSWORD')
+            raise ValueError(f"Invalid APP_ENV: {environment}")
+        db_host = require_env("DB_HOST")
+        db_port = require_env("DB_PORT")
+        db_passwd = require_env("PORTFOLIO_RO_PASSWORD")
     except ValueError as e:
         exit(str(e))
     return db_name, db_host, db_port, db_passwd
@@ -37,23 +37,52 @@ def load():
 def require_env(name):
     value = getenv(name)
     if not value:
-        raise ValueError(f'Missing environment variable {name}')
+        raise ValueError(f"Missing environment variable {name}")
     return value
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    db_name, db_host, db_port, db_passwd = load()
+
+    pool = AsyncConnectionPool(
+        conninfo="",
+        kwargs={
+            "dbname": db_name,
+            "host": db_host,
+            "port": int(db_port),
+            "user": "portfolio_ro",
+            "password": db_passwd,
+        },
+        min_size=1,
+        max_size=5,
+        open=False,
+    )
+
+    await pool.open()
+    await pool.wait()
+
+    app.state.pool = pool
+
+    try:
+        yield
+    finally:
+        await pool.close()
 
 
 def start():
     app = FastAPI()
 
-    @app.get('/')
+    @app.get("/")
     def root():
-        return {'message': 'API is running'}
+        return {"message": "API is running"}
 
-    @app.get('/health')
+    @app.get("/health")
     def health_check():
-        return {'status': 'healthy'}
+        return {"status": "healthy"}
 
     return app
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
