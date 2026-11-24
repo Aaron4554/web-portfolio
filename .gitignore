@@ -15,6 +15,9 @@ dist-ssr
 .oxlintrc.json
 .prettierrc
 db/.env
+middleware/.env
+middleware/__pycache__
+middlware/.venv
 
 # Editor directories and files
 .vscode/*
