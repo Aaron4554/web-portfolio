@@ -17,6 +17,7 @@ dist-ssr
 db/.env
 middleware/.env
 middleware/__pycache__
+middlware/.venv
 
 # Editor directories and files
 .vscode/*
