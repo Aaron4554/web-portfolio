@@ -57,22 +57,5 @@ def start():
     return app
 
 
-def get_db_connection(db_name, db_host, db_port, db_passwd):
-    return connect(
-        dbname=db_name,
-        host=db_host,
-        port=db_port,
-        user="portfolio_ro",
-        password=db_passwd,
-    )
-
-
-def test_db_connection(db_name, db_host, db_port, db_passwd):
-    with get_db_connection(db_name, db_host, db_port, db_passwd) as conn:
-        with conn.cursor() as cur:
-            cur.execute("SELECT current_database(), current_user;")
-            return cur.fetchone()
-
-
 if __name__ == "__main__":
     main()
