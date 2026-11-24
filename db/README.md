@@ -31,5 +31,4 @@ portfolio_admin - Read and write permissions\
 portfolio_ro - Read only permissions, this is what middleware will use, and the only thing the frontend/users will have access to
 
 ### TODO
-1. Write seed.sql
-2. Make deploy action run sql scripts
+Make another account that only has write permissions to prod. And another account for development
