@@ -4,13 +4,11 @@ from sys import exit
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from psycopg_pool import AsyncConnectionPool
+from uvicorn import run
 
 
 def main():
-    # Load environment
-    db_name, db_host, db_port, db_passwd = load()
-    # Start API
-    app = start()
+    run("main:app", host="127.0.0.1", port=8000, reload=False)
 
 
 # Loads environment, returns name, host, port, and passwd if successful; else raises error message
@@ -71,7 +69,7 @@ async def lifespan(app: FastAPI):
 
 
 def start():
-    app = FastAPI()
+    app = FastAPI(lifespan=lifespan)
 
     @app.get("/")
     def root():
@@ -81,8 +79,21 @@ def start():
     def health_check():
         return {"status": "healthy"}
 
+    @app.get("/health/db")
+    async def databse_health():
+        async with app.state.pool.connection() as conn, conn.cursor() as cur:
+            await cur.execute("SELECT current_database(), current_user;")
+            result = await cur.fetchone()
+        return {
+            "database": result[0],
+            "user": result[1],
+        }
+
     return app
 
+
+# Start API
+app = start()
 
 if __name__ == "__main__":
     main()
