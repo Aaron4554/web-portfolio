@@ -1,13 +1,17 @@
 from contextlib import asynccontextmanager
 from os import getenv
 from sys import exit
+from typing import Annotated
+
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI, Request
+from psycopg import AsyncConnection
 from psycopg_pool import AsyncConnectionPool
 from uvicorn import run
 
 
 def main():
+    # Use uvicorn to start running app when main.py runs.
     run("main:app", host="127.0.0.1", port=8000, reload=False)
 
 
@@ -68,6 +72,11 @@ async def lifespan(app: FastAPI):
         await pool.close()
 
 
+async def get_db_connection(request: Request):
+    async with app.state.pool.connection() as conn:
+        yield conn
+
+
 def start():
     app = FastAPI(lifespan=lifespan)
 
@@ -80,10 +89,14 @@ def start():
         return {"status": "healthy"}
 
     @app.get("/health/db")
-    async def databse_health():
-        async with app.state.pool.connection() as conn, conn.cursor() as cur:
+    async def databse_health(
+        conn: Annotated[AsyncConnection, Depends(get_db_connection)],
+    ):
+        async with conn.cursor() as cur:
             await cur.execute("SELECT current_database(), current_user;")
             result = await cur.fetchone()
+            if result is None:
+                raise RuntimeError("Database health check returned no results")
         return {
             "database": result[0],
             "user": result[1],
@@ -92,7 +105,7 @@ def start():
     return app
 
 
-# Start API
+# Start API, make app available on module level for cli uvicorn
 app = start()
 
 if __name__ == "__main__":
