@@ -1,11 +1,12 @@
 from contextlib import asynccontextmanager
 from os import getenv
 from sys import exit
-from dotenv import load_dotenv
-from fastapi import FastAPI, Depends, Request
-from psycopg_pool import AsyncConnectionPool
-from psycopg import AsyncConnection
 from typing import Annotated
+
+from dotenv import load_dotenv
+from fastapi import Depends, FastAPI, Request
+from psycopg import AsyncConnection
+from psycopg_pool import AsyncConnectionPool
 from uvicorn import run
 
 
