@@ -32,3 +32,6 @@ portfolio_ro - Read only permissions, this is what middleware will use, and the 
 
 ### TODO
 Make another account that only has write permissions to prod. And another account for development
+Change database table schema
+    from: personal_links table holding all links
+    to: {category} table holding information for each category of links
