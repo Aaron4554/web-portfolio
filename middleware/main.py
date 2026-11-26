@@ -100,6 +100,16 @@ def start():
             "user": result[1],
         }
 
+    # Database API end points should end up looking like this
+    # app.get("{Category}/{id}")
+    # async def get_link(
+    #    conn: Annotated[AsyncConnection, Depends(get_db_connection())],
+    #   ):
+    #    async conn.cursor() as cur:
+    #        await cur.execute("SELECT link FROM {catergory} WHERE id = {id} ")
+    #        Raise possible errors
+    #    Return link as string?
+
     return app
 
 
