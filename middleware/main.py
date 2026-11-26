@@ -11,7 +11,7 @@ from uvicorn import run
 
 
 def main():
-    # Use uvicorn to start running app when main.py runs.
+    # Use uvicorn to run app when main.py runs.
     run("main:app", host="127.0.0.1", port=8000, reload=False)
 
 
@@ -19,8 +19,8 @@ def main():
 def load():
     load_dotenv()
 
-    environment = getenv("APP_ENV", "dev")
     try:
+        environment = require_env("APP_ENV")
         if environment == "dev":
             db_name = require_env("DEV_DB_NAME")
         elif environment == "prod":
@@ -58,10 +58,8 @@ async def lifespan(app: FastAPI):
         },
         min_size=1,
         max_size=5,
-        open=False,
+        open=True,
     )
-
-    await pool.open()
     await pool.wait()
 
     app.state.pool = pool
