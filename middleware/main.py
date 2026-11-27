@@ -4,8 +4,8 @@ from sys import exit
 from typing import Annotated
 
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI, Request
-from psycopg import AsyncConnection
+from fastapi import Depends, FastAPI, HTTPException, Request
+from psycopg import AsyncConnection, sql
 from psycopg_pool import AsyncConnectionPool
 from uvicorn import run
 
@@ -77,6 +77,7 @@ async def get_db_connection(request: Request):
 
 def start():
     app = FastAPI(lifespan=lifespan)
+    allowed_tables = ["certifications", "projects", "social_links", "resume"]
 
     @app.get("/")
     def root():
@@ -100,15 +101,30 @@ def start():
             "user": result[1],
         }
 
-    # Database API end points should end up looking like this
-    # app.get("{Category}/{id}")
-    # async def get_link(
-    #    conn: Annotated[AsyncConnection, Depends(get_db_connection())],
-    #   ):
-    #    async conn.cursor() as cur:
-    #        await cur.execute("SELECT link FROM {catergory} WHERE id = {id} ")
-    #        Raise possible errors
-    #    Return link as string?
+    @app.get("/{category}/{id}")
+    async def get_link(
+        category: str,
+        id: int,
+        conn: Annotated[AsyncConnection, Depends(get_db_connection)],
+    ):
+        if category not in allowed_tables:
+            raise HTTPException(
+                status_code=404, detail=f"Category '{category}' not found"
+            )
+        async with conn.cursor() as cur:
+            await cur.execute(
+                sql.SQL("SELECT link FROM {} WHERE id = %s").format(
+                    sql.Identifier(category),
+                ),
+                (id,),
+            )
+            link = await cur.fetchone()
+            if link is None:
+                raise HTTPException(
+                    status_code=404,
+                    detail=f"No link found for id {id} in table {category}",
+                )
+        return link[0]
 
     return app
 
