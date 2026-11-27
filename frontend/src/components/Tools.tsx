@@ -12,6 +12,8 @@ const TOOLS = [
   "Git",
   "GitHub",
   "GitHub Actions",
+  "PostgreSQL",
+  "FastAPI",
   "Open-Code",
   "Ansible",
   "Docker",
